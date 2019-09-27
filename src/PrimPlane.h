@@ -1,11 +1,11 @@
-// Plane Geaometrical Primitive class
+// Plane Geometrical Primitive class
 // Written by Sergey Kosov in 2005 for Rendering Competition
 #pragma once
 
 #include "Prim.h"
 
 /**
- * @brief The Plane Geaometrical Primitive class
+ * @brief The Plane Geometrical Primitive class
  */
 class CPrimPlane : public CPrim
 {

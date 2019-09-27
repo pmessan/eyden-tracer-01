@@ -17,16 +17,27 @@ Mat RenderFrame(ICamera& camera)
 	CPrimTriangle t2(Vec3f(3, 2, 3), Vec3f(3, 2, -3), Vec3f(-3, 2, -3));
 	
 	Mat img(camera.getResolution(), CV_32FC3); 	// image array
-	Ray ray;                            		// primary ray
+	Ray ray1, ray2, ray3, ray4;                            		// primary ray
 	
 	for(int y = 0; y< img.rows; y++)
 		for (int x = 0; x < img.cols; x++) {
 			
 			// Initialize your ray here
+			ray1.dir = Vec3f(-0.5543, -0.415508, -0.721183);
+			camera.InitRay(0, 0, ray1);
+
+			ray2.dir = Vec3f(0.5543, -0.415508, -0.721183);
+			camera.InitRay(1, 0, ray2);
+
+			ray3.dir = Vec3f(-0.5543, 0.415508, -0.721183);
+			camera.InitRay(0, 1, ray3);
+
+			ray4.dir = Vec3f(0.5543, 0.415508, -0.721183);
+			camera.InitRay(1, 1, ray4);
 			
 			// Your code
 			
-			Vec3f col = RGB(0, 0, 0); // background color
+			Vec3f col = RGB(0.5, 0.5, 0.5); // background color
 			
 			/*
 			 * Find closest intersection with scene
@@ -51,6 +62,7 @@ int main(int argc, char* argv[])
 	Mat img1 = RenderFrame(c1);
 	imwrite("perspective1.jpg", img1);
 	
+	/*
 	CCameraPerspective c2(Vec3f(-8, 3, 8), Vec3f(1, -0.1f, -1), Vec3f(0, 1, 0), 45, resolution);
 	Mat img2 = RenderFrame(c2);
 	imwrite("perspective2.jpg", img2);
@@ -58,5 +70,6 @@ int main(int argc, char* argv[])
 	CCameraPerspective c3(Vec3f(-8, 3, 8), Vec3f(1, -0.1f, -1), Vec3f(1, 1, 0), 45, resolution);
 	Mat img3 = RenderFrame(c3);
 	imwrite("perspective3.jpg", img3);
+	*/
 	return 0;
 }

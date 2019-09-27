@@ -3,6 +3,7 @@
 #pragma once
 
 #include "Prim.h"
+#include <cmath>
 
 /**
  * @brief Sphere Geaometrical Primitive class
